@@ -14,4 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     "scottmckendry/cyberdream.nvim",
+    "nvim-lualine/lualine.nvim",
+    dependecied = { 'nvim-tree/nvim-web-devicons' }
 })
