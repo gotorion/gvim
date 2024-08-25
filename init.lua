@@ -1,6 +1,11 @@
 require('config.lazy')
-require('plugins')
 -- require('lsp')
 require('options')
 require('keymaps')
 require('colorscheme')
+-- plugins
+require('plugins.todo')
+require('plugins.telescope')
+require('plugins.lsp')
+require('plugins.markdown')
+require('plugins.neotree')

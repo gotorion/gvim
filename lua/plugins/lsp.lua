@@ -1,21 +1,11 @@
-return {
-    "navarasu/onedark.nvim",
-    "nvim-lualine/lualine.nvim",
+return{
     {
         "neovim/nvim-lspconfig",
         lazy = false,
         dependencies = {
             { "ms-jpq/coq_nvim", branch = "coq" },
-            -- 9000+ Snippets
             { "ms-jpq/coq.artifacts", branch = "artifacts" },
-            -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
-            -- Need to **configure separately**
             { 'ms-jpq/coq.thirdparty', branch = "3p" }
-            -- - shell repl
-            -- - nvim lua api
-            -- - scientific calculator
-            -- - comment banner
-            -- - etc
           },
           init = function()
             vim.g.coq_settings = {
@@ -67,34 +57,6 @@ return {
                         fallback_flags = { '-std=c++17' },
                     },
                 }
-          end,
+        end
     },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-    },
-    {
-	"folke/todo-comments.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-            signs = true,
-            keywords = {
-                FIX = {
-                    icon = "",
-                    color = "error",
-                },
-                TODO = {
-                    icon = "󰸞",
-                    color = "hint",
-                },
-            },
-        },
-    },
-    {
-        "nvim-telescope/telescope.nvim", tag = '0.1.8',
-        dependencies = { "nvim-lua/plenary.nvim", },
-    },
-    dependecied = { 'nvim-tree/nvim-web-devicons' }
 }
