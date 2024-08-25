@@ -75,5 +75,26 @@ return {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+    {
+	"folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            signs = true,
+            keywords = {
+                FIX = {
+                    icon = "",
+                    color = "error",
+                },
+                TODO = {
+                    icon = "󰸞",
+                    color = "hint",
+                },
+            },
+        },
+    },
+    {
+        "nvim-telescope/telescope.nvim", tag = '0.1.8',
+        dependencies = { "nvim-lua/plenary.nvim", },
+    },
     dependecied = { 'nvim-tree/nvim-web-devicons' }
 }

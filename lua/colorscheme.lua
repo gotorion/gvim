@@ -1,11 +1,16 @@
 -- define colorscheme here
 require('onedark').setup {
-    style = 'dark',
-    transparent = false,
+    style = 'deep',
+    transparent = true,
+    term_colors = true,
     code_style = {
         comment = 'italic',
         keyword = 'italic',
         functions = 'none',
+        strings = 'italic',
+    },
+    lualine = {
+        transparent = true,
     },
     diagnostics = {
         undercurl = true,
@@ -38,11 +43,11 @@ require('lualine').setup {
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+    lualine_y = {'progress', 'searchcount'},
     lualine_z = {'location'}
   },
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = {'searchcount'},
     lualine_b = {},
     lualine_c = {'filename'},
     lualine_x = {'location'},
