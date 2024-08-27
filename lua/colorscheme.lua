@@ -1,7 +1,7 @@
 -- define colorscheme here
 require('onedark').setup {
     style = 'deep',
-    transparent = true,
+    transparent = false,
     term_colors = true,
     code_style = {
         comment = 'italic',
