@@ -1,5 +1,4 @@
 return{
-    {
         "neovim/nvim-lspconfig",
         lazy = false,
         dependencies = {
@@ -58,5 +57,4 @@ return{
                     },
                 }
         end
-    },
 }
