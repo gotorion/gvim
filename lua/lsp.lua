@@ -10,6 +10,9 @@ return {
           "-j=4",
           "--fallback-style=LLVM",
         },
+        init_options = {
+            fallback_flags = { '-std=c++17' },
+        },
     },
     lspconfig.cmake.setup {
         cmd = {
