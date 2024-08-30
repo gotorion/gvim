@@ -6,5 +6,6 @@ return {
             enable = true,
             additional_vim_regex_highlighting = true,
         },
+        auto_install = true,
     },
 }
