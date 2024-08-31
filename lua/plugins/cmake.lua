@@ -1,6 +1,13 @@
 return {
     "Civitasv/cmake-tools.nvim",
     config = function()
+        --- keymaps
+        local map = vim.api.nvim_set_keymap
+        local opts = { noremap = true, silent = true }
+        map('n', '<leader>bc',  '<Cmd>CMakeBuild<CR>', opts)
+        map('n', '<leader>rr',   '<Cmd>CMakeQuickRun<CR>', opts)
+
+        --- setup
         local osys = require("cmake-tools.osys")
         require('cmake-tools').setup {
             cmake_command = "cmake", -- this is used to specify cmake command path
