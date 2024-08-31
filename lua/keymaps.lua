@@ -5,10 +5,6 @@ map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-j>', '<C-w>j', opts)
 map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<C-l>', '<C-w>l', opts)
---- set Neo-tree
-vim.keymap.set('n', '<leader>tt', '<cmd>Neotree toggle<CR>', { noremap = true, silent = true, desc = 'Toggle Neo-tree' })
-vim.keymap.set('n', '<leader>tf', '<cmd>Neotree reveal<CR>', { noremap = true, silent = true, desc = 'Reveal file in Neo-tree' })
-vim.keymap.set('n', '<leader>ts', '<cmd>Neotree focus<CR>', { noremap = true, silent = true, desc = 'Focus Neo-tree' })
 --- barbar tab manager
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
