@@ -10,7 +10,7 @@ return {
         animation = true,
         clickable = true,
         icons = {
-            buffer_index = true,
+            buffer_index = false,
             buffer_number = true,
         },
         gitsigns = {
