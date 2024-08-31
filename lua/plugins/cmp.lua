@@ -2,7 +2,7 @@ return {
     {
         "gbprod/yanky.nvim",
     },
-    {
+        {
         "hrsh7th/nvim-cmp",
         dependencies = {
             'neovim/nvim-lspconfig',
