@@ -1,16 +1,11 @@
---- set telescope
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
---- set Neo-tree
-vim.keymap.set('n', '<leader>tt', '<cmd>Neotree toggle<CR>', { noremap = true, silent = true, desc = 'Toggle Neo-tree' })
-vim.keymap.set('n', '<leader>tf', '<cmd>Neotree reveal<CR>', { noremap = true, silent = true, desc = 'Reveal file in Neo-tree' })
-vim.keymap.set('n', '<leader>ts', '<cmd>Neotree focus<CR>', { noremap = true, silent = true, desc = 'Focus Neo-tree' })
---- barbar tab manager
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+--- set windows jump
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
+map('n', '<C-l>', '<C-w>l', opts)
+--- barbar tab manager
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
@@ -46,6 +41,3 @@ map('n', '<Space>bn', '<Cmd>BufferOrderByName<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
--- CMake
-map('n', '<leader>b', '<Cmd>CMakeBuild<CR>', opts)
-map('n', '<leader>r', '<Cmd>CMakeQuickRun<CR>', opts)
