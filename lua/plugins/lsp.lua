@@ -61,8 +61,18 @@ return{
                         fallback_flags = { '-std=c++17' },
                     },
                 },
+                --- cmake
+                lspconfig.cmake.setup {
+                    cmd = { 'cmake-language-server' },
+                    filetypes = { 'cmake' },
+                    init_options = {
+                        buildDirectory = 'build',
+                    },
+                    single_file_support = true,
+                },
                 --- rust
                 lspconfig.rust_analyzer.setup {},
+
             }
         end
     },
