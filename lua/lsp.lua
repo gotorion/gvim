@@ -8,10 +8,10 @@ return {
           "--header-insertion=iwyu",
           "--completion-style=detailed",
           "-j=4",
-          "--fallback-style=LLVM",
+          "--fallback-style=Google",
         },
         init_options = {
-            fallback_flags = { '-std=c++17' },
+            fallback_flags = { '-std=c++2a' },
         },
     },
     lspconfig.cmake.setup {
@@ -19,8 +19,12 @@ return {
             "cmake-language-server",
         },
         filetypes = {
-            "cmake",
+            "cmake", "txt",
         },
+        init_options = {
+            buildDirectory = 'build',
+        },
+        single_file_support = true,
     },
 }
 
