@@ -4,8 +4,8 @@ return {
         --- keymaps
         local map = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
-        map('n', '<leader>bc',  '<Cmd>CMakeBuild<CR>', opts)
-        map('n', '<leader>rr',   '<Cmd>CMakeQuickRun<CR>', opts)
+        map('n', '<leader>cc',  '<Cmd>CMakeBuild<CR>', opts)
+        map('n', '<leader>cr',   '<Cmd>CMakeQuickRun<CR>', opts)
 
         --- setup
         local osys = require("cmake-tools.osys")
