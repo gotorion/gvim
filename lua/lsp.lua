@@ -11,7 +11,7 @@ return {
           "--fallback-style=Google",
         },
         init_options = {
-            fallback_flags = { '-std=c++2a', '-fcoroutine' },
+            fallback_flags = { '-std=c++17' },
         },
     },
     lspconfig.cmake.setup {
