@@ -51,16 +51,17 @@ return {
             icons = {
                 buffer_index = false,
                 buffer_number = false,
-            },
-            gitsigns = {
-              added = {enabled = true, icon = '+'},
-              changed = {enabled = true, icon = '~'},
-              deleted = {enabled = true, icon = '-'},
+                 gitsigns = {
+                     added = {enabled = true, icon = '+'},
+                     changed = {enabled = true, icon = '~'},
+                     deleted = {enabled = true, icon = '-'},
+                },
             },
             highlight_visiable = true,
             sidebar_filetypes = {
-                NvimTree = true,
-            }
+                Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
+            },
+            insert_at_start = true,
         }
     end
 }
