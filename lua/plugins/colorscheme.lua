@@ -1,13 +1,13 @@
 return {
-    "miikanissi/modus-themes.nvim",
+    'projekt0n/github-nvim-theme',
+    lazy = false,
     priority = 1000,
     config = function()
-	require('modus-themes').setup {
-        styles = {
-            comments = {italic = true },
-            functions = { italic = true },
-        },
-	    vim.cmd([[colorscheme modus_operandi]])
-	}
+        require('github-theme').setup {
+            options = {
+                transparent = false,
+            }
+        }
+        vim.cmd('colorscheme github_dark_colorblind')
     end
 }
