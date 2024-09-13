@@ -89,6 +89,7 @@ return {
                 },
                 formatting = {
                     format = os.getenv("NERD_FONTS") and lspkind.cmp_format {
+                    -- format = lspkind.cmp_format {
                         mode = 'symbol',
                         maxwidth = 50,
                         before = function(entry, vim_item) vim_item.menu = "["..string.upper(entry.source.name).."]"
