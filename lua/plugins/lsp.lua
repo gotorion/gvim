@@ -56,7 +56,6 @@ return{
                       "--completion-style=detailed",
                       "-j=4",
                       "--fallback-style=LLVM",
-                      "--clang-tidy",
                     },
                     initialization_options = {
                         fallback_flags = { '-std=c++17' },
