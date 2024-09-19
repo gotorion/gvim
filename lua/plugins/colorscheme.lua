@@ -1,7 +1,10 @@
-return { 
-    "miikanissi/modus-themes.nvim", 
+return {
+    'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
-        vim.cmd([[colorscheme modus_operandi]])
+        require('onedark').setup {
+
+        }
+        require('onedark').load()
     end
 }
