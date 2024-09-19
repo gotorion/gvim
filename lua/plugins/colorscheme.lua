@@ -1,10 +1,8 @@
 return {
-    'navarasu/onedark.nvim',
-    priority = 1000,
+    'ramojus/mellifluous.nvim',
     config = function()
-        require('onedark').setup {
-
+        require('mellifluous').setup {
         }
-        require('onedark').load()
+        vim.cmd("colorscheme mellifluous")
     end
 }
