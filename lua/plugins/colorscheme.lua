@@ -1,8 +1,6 @@
 return {
-    'ramojus/mellifluous.nvim',
+    'sainnhe/sonokai',
     config = function()
-        require('mellifluous').setup {
-        }
-        vim.cmd("colorscheme mellifluous")
+        vim.cmd("colorscheme sonokai")
     end
 }

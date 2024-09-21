@@ -2,7 +2,7 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
         local dap = require("dap")
-        dap.configurations.c = {
+        dap.configurations.cpp = {
           {
             name = "Launch",
             type = "gdb",

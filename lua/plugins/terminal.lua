@@ -31,8 +31,8 @@ return {
             auto_scroll = true, -- automatically scroll to the bottom on terminal output
             float_opts = {
               border = 'curved' ,
-              width = 80,
-              height = 20,
+              width = 90,
+              height = 30,
               winblend = 3,
               title_pos = 'center',
             },
