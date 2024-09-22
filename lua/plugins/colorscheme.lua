@@ -4,7 +4,7 @@ return {
         require("modus-themes").setup {
             style = "auto",
             variant = "default", -- Theme comes in four variants `default`, `tinted`, `deuteranopia`, and `tritanopia`
-            transparent = true, -- Transparent background (as supported by the terminal)
+            transparent = false, -- Transparent background (as supported by the terminal)
             dim_inactive = false, -- "non-current" windows are dimmed
             hide_inactive_statusline = false, -- Hide statuslines on inactive windows. Works with the standard **StatusLine**, **LuaLine** and **mini.statusline**
             styles = {
@@ -29,6 +29,6 @@ return {
             ---@param colors ColorScheme
             on_highlights = function(highlights, colors) end,
         }
-        vim.cmd([[colorscheme modus_vivendi]]) -- modus_operandi, modus_vivendi
+        vim.cmd([[colorscheme modus_operandi]]) -- modus_operandi, modus_vivendi
     end
 }

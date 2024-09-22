@@ -1,7 +1,7 @@
 return{
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
+        lazy = true,
         config = function()
         end
     },
@@ -55,7 +55,7 @@ return{
                       "--header-insertion=iwyu",
                       "--completion-style=detailed",
                       "-j=4",
-                      "--fallback-style=LLVM",
+                      "--fallback-style=Google",
                     },
                     initialization_options = {
                         fallback_flags = { '-std=c++17' },

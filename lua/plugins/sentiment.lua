@@ -3,7 +3,12 @@ return {
     version = "*",
     event = "VeryLazy", -- keep for lazy loading
     opts = {
-      -- config
+        pairs = {
+            { "(", ")" },
+            { "[", "]" },
+            { "{", "}" },
+            { "<", ">" },
+        }
     },
     init = function()
       -- `matchparen.vim` needs to be disabled manually in case of lazy loading
