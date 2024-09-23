@@ -28,7 +28,6 @@ local conf_func = function()
           tabline = {},
           extensions = {},
         }    -- Now don't forget to initialize lualine
-    lualine.setup(config)
 end
 
 local conf = {
