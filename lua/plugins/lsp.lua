@@ -1,7 +1,7 @@
 return{
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
+        lazy = true,
         config = function()
         end
     },
@@ -45,6 +45,7 @@ return{
             })
 
             local lspconfig = require('lspconfig')
+            local navic = require('nvim-navic')
             lsp_zero.setup {
                 --- cpp
                 lspconfig.clangd.setup {
@@ -55,12 +56,14 @@ return{
                       "--header-insertion=iwyu",
                       "--completion-style=detailed",
                       "-j=4",
-                      "--fallback-style=LLVM",
-                      "--clang-tidy",
+                      "--fallback-style=Google",
                     },
                     initialization_options = {
-                        fallback_flags = { '-std=c++17' },
+                        fallback_flags = { '-std=c++20' },
                     },
+                    on_attach = function(client , buffer)
+                            navic.attach(client, buffer)
+                    end
                 },
                 --- cmake
                 lspconfig.cmake.setup {

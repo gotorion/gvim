@@ -17,6 +17,9 @@ return {
                     'rust_analyzer',
                     'cmake',
                     'pyright',
+                    -- 'bashls',
+                    -- 'bufls',
+                    -- 'sqls',
                 }
             }
         end
