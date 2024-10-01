@@ -1,8 +1,13 @@
 local conf = {
-    "miikanissi/modus-themes.nvim",
+    "EdenEast/nightfox.nvim",
+    -- "miikanissi/modus-themes.nvim",
     priority = 1000,
     config = function()
-        vim.cmd("colorscheme modus_operandi")
+        require('nightfox').setup {
+
+        }
+        vim.cmd("colorscheme dayfox")
+        -- vim.cmd("colorscheme modus_operandi")
     end
 }
 return conf
