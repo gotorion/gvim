@@ -1,7 +1,8 @@
 local conf = {
-    "sainnhe/sonokai",
+    "miikanissi/modus-themes.nvim",
+    priority = 1000,
     config = function()
-        vim.cmd("colorscheme sonokai")
+        vim.cmd("colorscheme modus_operandi")
     end
 }
 return conf
