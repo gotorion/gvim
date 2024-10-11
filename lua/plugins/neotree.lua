@@ -22,6 +22,9 @@ return {
             popup_border_stype = 'rounded',
             view = {
                 side = 'left',
+            },
+            window = {
+                width = 30,
             }
         }
     end
