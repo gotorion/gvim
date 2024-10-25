@@ -1,6 +1,9 @@
+local not_vscode = vim.g.vscode == true
+
 return{
     {
         "neovim/nvim-lspconfig",
+        cond = not_vscode,
         lazy = true,
         config = function()
         end
@@ -8,6 +11,7 @@ return{
     --- lsp-zero
     {
         'VonHeikemen/lsp-zero.nvim',
+        cond = not_vscode,
         branch = 'v4.x',
         config = function() 
             local lsp_attach = function(client, bufnr)
