@@ -63,8 +63,8 @@ return{
                     },
                 },
                 --- cmake
-                lspconfig.cmake.setup {
-                    cmd = { 'cmake-language-server' },
+                lspconfig.neocmake.setup {
+                    cmd = { 'neocmakelsp', '--stdio' },
                     filetypes = { 'cmake' },
                     init_options = {
                         buildDirectory = 'build',
