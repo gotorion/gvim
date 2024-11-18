@@ -1,9 +1,6 @@
-local not_vscode = vim.g.vscode == true
-
 return{
     {
         "neovim/nvim-lspconfig",
-        cond = not_vscode,
         lazy = true,
         config = function()
         end
@@ -49,7 +46,6 @@ return{
             })
 
             local lspconfig = require('lspconfig')
-            local navic = require('nvim-navic')
             lsp_zero.setup {
                 --- cpp
                 lspconfig.clangd.setup {
@@ -65,9 +61,6 @@ return{
                     initialization_options = {
                         fallback_flags = { '-std=c++20' },
                     },
-                    on_attach = function(client , buffer)
-                            navic.attach(client, buffer)
-                    end
                 },
                 --- cmake
                 lspconfig.cmake.setup {
