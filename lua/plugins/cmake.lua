@@ -1,74 +1,78 @@
+
 return {
-    "Civitasv/cmake-tools.nvim",
-    config = function()
-        --- keymaps
+    'Civitasv/cmake-tools.nvim',
+    config = function ()
         local map = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
-        map('n', '<leader>cc',  '<Cmd>CMakeBuild<CR>', opts)
-        map('n', '<leader>cr',   '<Cmd>CMakeQuickRun<CR>', opts)
-        --- setup
-        local osys = require("cmake-tools.osys")
-        require('cmake-tools').setup {
-            cmake_command = "cmake", -- this is used to specify cmake command path
-            ctest_command = "ctest", -- this is used to specify ctest command path
-            cmake_use_preset = true,
-            cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
-            cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
-            cmake_build_options = {
-                  --       ${kit}
-                  --       ${kitGenerator}
-                  --       ${variant:xx}
-            }, -- this will be passed when invoke `CMakeBuild`
-            cmake_build_directory = function()
-            if osys.iswin32 then
-                return "out\\${variant:buildType}"
-            end
-                return "out/${variant:buildType}"
-            end, 
-            cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
-            cmake_compile_commands_from_lsp = false, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
-            cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
-            cmake_variants_message = {
-                short = { show = true }, -- whether to show short message
-                long = { show = true, max_length = 40 }, -- whether to show long message
-            },
-            cmake_dap_configuration = { -- debug settings for cmake
-                name = "cpp",
-                type = "codelldb",
-                request = "launch",
-                stopOnEntry = false,
-                runInTerminal = true,
-                console = "integratedTerminal",
-            },
-            cmake_executor = { -- executor to use
-                name = "toggleterm", -- name of the executor
-                opts = {
-                    toggleterm = {
-                        direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
-                        close_on_exit = false, -- whether close the terminal when exit
-                        auto_scroll = true, -- whether auto scroll to the bottom
-                        singleton = true, -- single instance, autocloses the opened one, if present
-                    },
-                }, 
-            },
-            cmake_runner = { -- runner to use
-              name = "toggleterm", -- name of the runner
-              opts = {
-                toggleterm = {
-                  direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
-                  close_on_exit = false, -- whether close the terminal when exit
-                  auto_scroll = true, -- whether auto scroll to the bottom
-                  singleton = true, -- single instance, autocloses the opened one, if present
-                },
+        map('n', '<leader>cr', '<Cmd>CMakeRun<CR>', opts)
+        map('n', '<leader>cb', '<Cmd>CMakeBuild<CR>', opts)
+        require("cmake-tools").setup {
+           cmake_command = "cmake",
+           cmake_regenerate_on_save = true,
+           cmake_generate_options = { "-GNinja", "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" }, -- this will be passed when invoke `CMakeGenerate`
+           cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
+           cmake_build_directory = "build", -- this is used to specify generate directory for cmake, allows macro expansion
+           cmake_soft_link_compile_commands = false, -- this will automatically make a soft link from compile commands file to project root dir
+           cmake_compile_commands_from_lsp = true,
+           cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
+           cmake_variants_message = {
+               short = { show = true }, -- whether to show short message
+               long = { show = true, max_length = 80 }, -- whether to show long message
+           },
+           cmake_dap_configuration = { -- debug settings for cmake
+               name = "cpp",
+               type = "codelldb",
+               request = "launch",
+               stopOnEntry = false,
+               runInTerminal = true,
+               console = "integratedTerminal",
+           },
+           cmake_executor = { -- executor to use
+               name = "toggleterm",
+               opts = {}, -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
+               default_opts = { -- a list of default and possible values for executors
+                   quickfix = {
+                       show = "always", -- "always", "only_on_error"
+                       position = "botright", -- "bottom", "top", "belowright"
+                       size = 10,
+                       encoding = "utf-8",
+                       auto_close_when_success = true,
+                   },
+                   toggleterm = {
+                       direction = "vertical", -- 'vertical' | 'horizontal' | 'tab' | 'float'
+                       close_on_exit = true, -- whether close the terminal when exit
+                       auto_scroll = true, -- whether auto scroll to the bottom
+                   },
+                   overseer = {},
+               },
+           },
+           cmake_runner = {
+               name = "toggleterm",
+               opts = {},
+               default_opts = { -- a list of default and possible values for runners
+                   quickfix = {
+                       show = "always", -- "always", "only_on_error"
+                       position = "belowright", -- "bottom", "top"
+                       size = 6,
+                       encoding = "utf-8",
+                       auto_close_when_success = true, 
+                   },
+                   toggleterm = {
+                       direction = "vertical",
+                       close_on_exit = false,
+                       singleton = false, -- single instance, autocloses the opened one, if present
+                       auto_scroll = false, -- whether auto scroll to the bottom
+                   },
+                   overseer = {},
               },
-            },
-            cmake_notifications = {
-              runner = { enabled = false },
-              executor = { enabled = false },
-              spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }, -- icons used for progress display
-              refresh_rate_ms = 100, -- how often to iterate icons
-            },
-            cmake_virtual_text_support = true, -- Show the target related to current file using virtual text (at right corner)
-    } -- end of setup
+           },
+           cmake_notifications = {
+               runner = { enabled = false },
+               executor = { enabled = false },
+               spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }, -- icons used for progress display
+               refresh_rate_ms = 100, -- how often to iterate icons
+           },
+           cmake_virtual_text_support = false,
+        }
     end
 }

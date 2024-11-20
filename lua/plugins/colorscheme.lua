@@ -11,16 +11,13 @@
 -- }
 
 local conf = {
-    "Mofiqul/vscode.nvim",
+    'sainnhe/sonokai',
     lazy = false,
     priority = 1000,
     config =function()
-        vim.o.background = 'light'
-        local c = require('vscode.colors').get_colors()
-        require('vscode').setup {
-            italic_comments = true,
-        }
-        vim.cmd([[colorscheme vscode]])
+        vim.g.sonokai_enable_italic = true
+        vim.g.sonokai_cursor = red
+        vim.cmd([[colorscheme sonokai]])
     end
 }
 return conf

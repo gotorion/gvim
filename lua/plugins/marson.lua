@@ -17,9 +17,8 @@ return {
                     'rust_analyzer',
                     'neocmake',
                     'pyright',
-                    -- 'bashls',
-                    -- 'bufls',
-                    -- 'sqls',
+                    'harper_ls',
+                    'gopls'
                 }
             }
         end

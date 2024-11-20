@@ -73,7 +73,16 @@ return{
                 },
                 --- rust
                 lspconfig.rust_analyzer.setup {},
-
+                --- lua
+                lspconfig.lua_ls.setup {},
+                --- golang
+                lspconfig.gopls.setup {
+                    cmd = { 'gopls' },
+                    filetypes = {
+                        'go', 'gomod', 'gowork', 'gotmpl'
+                    },
+                    single_file_support = true,
+                }
             }
         end
     },
