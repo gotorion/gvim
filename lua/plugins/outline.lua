@@ -3,9 +3,14 @@ return {
     lazy = true,
     cmd = { "Outline", "OutlineOpen"},
     keys = {
-        {"<leader>oo", "<cmd>Outline<CR>", desc = "Toggle Outline" },
+        {"<leader>o", "<cmd>Outline<CR>", desc = "Toggle Outline" },
     },
     opts = {
-    
+        outline_window = {
+            position = 'right',
+        },
+        keymaps = {
+            peek_location = 'o',
+        }
     }
 }

@@ -10,14 +10,21 @@
 --     end
 -- }
 
-local conf = {
-    'sainnhe/sonokai',
-    lazy = false,
-    priority = 1000,
-    config =function()
-        vim.g.sonokai_enable_italic = true
-        vim.g.sonokai_cursor = red
-        vim.cmd([[colorscheme sonokai]])
+--- local conf = {
+---     'sainnhe/sonokai',
+---     lazy = false,
+---     priority = 1000,
+---     config =function()
+---         vim.g.sonokai_enable_italic = true
+---         vim.g.sonokai_cursor = red
+---         vim.cmd([[colorscheme sonokai]])
+---     end
+--- }
+local m = {
+    'ramojus/mellifluous.nvim',
+    config = function ()
+        require('mellifluous').setup({})
+        vim.cmd([[colorscheme mellifluous]])
     end
 }
-return conf
+return m
