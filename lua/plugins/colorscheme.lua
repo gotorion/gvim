@@ -20,11 +20,21 @@
 ---         vim.cmd([[colorscheme sonokai]])
 ---     end
 --- }
+--- local m = {
+---     'ramojus/mellifluous.nvim',
+---     config = function ()
+---         require('mellifluous').setup({})
+---         vim.cmd([[colorscheme mellifluous]])
+---     end
+--- }
+--- 
 local m = {
-    'ramojus/mellifluous.nvim',
+    'rebelot/kanagawa.nvim',
     config = function ()
-        require('mellifluous').setup({})
-        vim.cmd([[colorscheme mellifluous]])
+        require('kanagawa').setup({
+
+        })
+        require('kanagawa').load('wave')
     end
 }
 return m
