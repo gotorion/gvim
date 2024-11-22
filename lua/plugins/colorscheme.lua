@@ -29,12 +29,9 @@
 --- }
 --- 
 local m = {
-    'rebelot/kanagawa.nvim',
+    'blazkowolf/gruber-darker.nvim',
     config = function ()
-        require('kanagawa').setup({
-
-        })
-        require('kanagawa').load('wave')
+        vim.cmd('colorscheme gruber-darker')
     end
 }
 return m
