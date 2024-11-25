@@ -82,7 +82,12 @@ return{
                         'go', 'gomod', 'gowork', 'gotmpl'
                     },
                     single_file_support = true,
-                }
+                },
+                --- haskell
+                lspconfig.hls.setup( {
+                    filetypes = {'haskell', 'lhaskell', 'cabal'},
+                    single_file_support = true,
+                })
             }
         end
     },

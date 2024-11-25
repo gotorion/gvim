@@ -18,7 +18,8 @@ return {
                     'neocmake',
                     'pyright',
                     'harper_ls',
-                    'gopls'
+                    'gopls',
+                    'hls'
                 }
             }
         end

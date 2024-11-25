@@ -1,9 +1,7 @@
-local not_vscode = vim.g.vscode == true
 return {
     {
         {
             "iamcco/markdown-preview.nvim",
-            cond = not_vscode,
             cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
             ft = { "markdown" },
             build = function() vim.fn["mkdp#util#install"]() end,
@@ -11,7 +9,6 @@ return {
 
         {
             'MeanderingProgrammer/render-markdown.nvim',
-            cond = not_vscode,
             dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
             opts = {},
                 -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
@@ -417,7 +414,6 @@ return {
         custom_handlers = {},
     }
                 end
-                
         },
     },
 }

@@ -39,7 +39,7 @@ return {
                        auto_close_when_success = true,
                    },
                    toggleterm = {
-                       direction = "vertical", -- 'vertical' | 'horizontal' | 'tab' | 'float'
+                       direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
                        close_on_exit = true, -- whether close the terminal when exit
                        auto_scroll = true, -- whether auto scroll to the bottom
                    },
@@ -58,7 +58,7 @@ return {
                        auto_close_when_success = true, 
                    },
                    toggleterm = {
-                       direction = "vertical",
+                       direction = "float",
                        close_on_exit = false,
                        singleton = false, -- single instance, autocloses the opened one, if present
                        auto_scroll = false, -- whether auto scroll to the bottom
