@@ -8,7 +8,6 @@ return{
     --- lsp-zero
     {
         'VonHeikemen/lsp-zero.nvim',
-        cond = not_vscode,
         branch = 'v4.x',
         config = function() 
             local lsp_attach = function(client, bufnr)
@@ -25,7 +24,7 @@ return{
               vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
               vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
             end
-            
+
             local lsp_zero = require('lsp-zero')
             lsp_zero.extend_lspconfig({
               sign_text = true,
@@ -74,7 +73,31 @@ return{
                 --- rust
                 lspconfig.rust_analyzer.setup {},
                 --- lua
-                lspconfig.lua_ls.setup {},
+                lspconfig.lua_ls.setup {
+                    on_init = function(client)
+                    if client.workspace_folders then
+                      local path = client.workspace_folders[1].name
+                      if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
+                        return
+                      end
+                    end
+
+                    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                      runtime = {
+                        version = 'LuaJIT'
+                      },
+                      workspace = {
+                        checkThirdParty = false,
+                        library = {
+                          vim.env.VIMRUNTIME
+                        }
+                      }
+                    })
+                  end,
+                  settings = {
+                    Lua = {}
+                  }
+                },
                 --- golang
                 lspconfig.gopls.setup {
                     cmd = { 'gopls' },

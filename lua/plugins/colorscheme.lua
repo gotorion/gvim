@@ -1,3 +1,18 @@
+-- local m = {
+--     'miikanissi/modus-themes.nvim',
+--     lazy = false,
+--     config = function()
+--         vim.cmd('colorscheme modus_operandi')
+--     end
+-- }
+local m = {
+    'NTBBloodbath/doom-one.nvim',
+    lazy = false,
+    config = function()
+        vim.cmd('colorscheme doom-one')
+    end
+}
+return m
 -- local conf = {
 --     "polirritmico/monokai-nightasty.nvim",
 --     -- "miikanissi/modus-themes.nvim",
@@ -9,6 +24,7 @@
 --         require("monokai-nightasty").load{}
 --     end
 -- }
+-- return conf
 
 --- local conf = {
 ---     'sainnhe/sonokai',
@@ -28,10 +44,10 @@
 ---     end
 --- }
 --- 
-local m = {
-    'blazkowolf/gruber-darker.nvim',
-    config = function ()
-        vim.cmd('colorscheme gruber-darker')
-    end
-}
-return m
+-- local m = {
+--     'blazkowolf/gruber-darker.nvim',
+--     config = function ()
+--         vim.cmd('colorscheme gruber-darker')
+--     end
+-- }
+-- return m
