@@ -25,6 +25,7 @@ return {
         },
         config = function()
             local cmp = require('cmp')
+            local lspkind = require('lspkind')
             --- function has_words_before
             local function has_words_before()
                 local cursor = vim.api.nvim_win_get_cursor(0)
@@ -49,6 +50,7 @@ return {
                     {name = "luasnip",  max_item_count = 8 },
                     {name = "path",     max_item_count = 3 },
                     {name = "cacl",     max_item_count = 3},
+                    {name = "orgmode",  max_item_count = 5},
                 },
                 mapping = {
                     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -88,8 +90,8 @@ return {
                     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
                 },
                 formatting = {
-                    format = os.getenv("NERD_FONTS") and lspkind.cmp_format {
-                    -- format = lspkind.cmp_format {
+                    -- format = os.getenv("NERD_FONTS") and lspkind.cmp_format {
+                    format = lspkind.cmp_format {
                         mode = 'symbol',
                         maxwidth = 50,
                         before = function(entry, vim_item) vim_item.menu = "["..string.upper(entry.source.name).."]"

@@ -24,7 +24,7 @@ return{
               vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
               vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
             end
-            
+
             local lsp_zero = require('lsp-zero')
             lsp_zero.extend_lspconfig({
               sign_text = true,
@@ -45,7 +45,6 @@ return{
             })
 
             local lspconfig = require('lspconfig')
-            local navic = require('nvim-navic')
             lsp_zero.setup {
                 --- cpp
                 lspconfig.clangd.setup {
@@ -61,13 +60,10 @@ return{
                     initialization_options = {
                         fallback_flags = { '-std=c++20' },
                     },
-                    on_attach = function(client , buffer)
-                            navic.attach(client, buffer)
-                    end
                 },
                 --- cmake
-                lspconfig.cmake.setup {
-                    cmd = { 'cmake-language-server' },
+                lspconfig.neocmake.setup {
+                    cmd = { 'neocmakelsp', '--stdio' },
                     filetypes = { 'cmake' },
                     init_options = {
                         buildDirectory = 'build',
@@ -76,7 +72,45 @@ return{
                 },
                 --- rust
                 lspconfig.rust_analyzer.setup {},
+                --- lua
+                lspconfig.lua_ls.setup {
+                    on_init = function(client)
+                    if client.workspace_folders then
+                      local path = client.workspace_folders[1].name
+                      if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
+                        return
+                      end
+                    end
 
+                    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                      runtime = {
+                        version = 'LuaJIT'
+                      },
+                      workspace = {
+                        checkThirdParty = false,
+                        library = {
+                          vim.env.VIMRUNTIME
+                        }
+                      }
+                    })
+                  end,
+                  settings = {
+                    Lua = {}
+                  }
+                },
+                --- golang
+                lspconfig.gopls.setup {
+                    cmd = { 'gopls' },
+                    filetypes = {
+                        'go', 'gomod', 'gowork', 'gotmpl'
+                    },
+                    single_file_support = true,
+                },
+                --- haskell
+                lspconfig.hls.setup( {
+                    filetypes = {'haskell', 'lhaskell', 'cabal'},
+                    single_file_support = true,
+                })
             }
         end
     },

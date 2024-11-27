@@ -22,6 +22,12 @@ return {
             popup_border_stype = 'rounded',
             view = {
                 side = 'left',
+            },
+            window = {
+                width = 30,
+            },
+            filesystem = {
+                hijack_netrw_behavior = "open_default",
             }
         }
     end

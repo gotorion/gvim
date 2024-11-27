@@ -59,6 +59,7 @@ return {
             },
             highlight_visiable = true,
             sidebar_filetypes = {
+                NvimTree = true,
                 Outline = {event = 'BufWinLeave', text = 'symbols-outline', align = 'right'},
             },
             insert_at_start = true,

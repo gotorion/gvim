@@ -15,11 +15,11 @@ return {
                     'lua_ls',
                     'clangd',
                     'rust_analyzer',
-                    'cmake',
+                    'neocmake',
                     'pyright',
-                    -- 'bashls',
-                    -- 'bufls',
-                    -- 'sqls',
+                    'harper_ls',
+                    'gopls',
+                    'hls'
                 }
             }
         end
