@@ -1,6 +1,7 @@
 
 return {
     'Civitasv/cmake-tools.nvim',
+    lazy = true,
     config = function ()
         local map = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }

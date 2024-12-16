@@ -5,26 +5,26 @@
 --         vim.cmd('colorscheme modus_operandi')
 --     end
 -- }
-local m = {
-    'NTBBloodbath/doom-one.nvim',
-    lazy = false,
-    config = function()
-        vim.cmd('colorscheme doom-one')
-    end
-}
-return m
--- local conf = {
---     "polirritmico/monokai-nightasty.nvim",
---     -- "miikanissi/modus-themes.nvim",
+-- local m = {
+--     'NTBBloodbath/doom-one.nvim',
 --     lazy = false,
---     priority = 1000,
 --     config = function()
---         -- vim.cmd([[colorscheme modus_operandi]])
---         require("monokai-nightasty").setup{}
---         require("monokai-nightasty").load{}
+--         vim.cmd('colorscheme doom-one')
 --     end
 -- }
--- return conf
+-- return m
+local conf = {
+    "polirritmico/monokai-nightasty.nvim",
+    -- "miikanissi/modus-themes.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        -- vim.cmd([[colorscheme modus_operandi]])
+        require("monokai-nightasty").setup{}
+        require("monokai-nightasty").load{}
+    end
+}
+return conf
 
 --- local conf = {
 ---     'sainnhe/sonokai',
