@@ -46,6 +46,8 @@ return{
 
             local lspconfig = require('lspconfig')
             lsp_zero.setup {
+                --- python
+                lspconfig.pyright.setup({}),
                 --- cpp
                 lspconfig.clangd.setup {
                     cmd = {

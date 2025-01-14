@@ -17,9 +17,6 @@ return {
                     'rust_analyzer',
                     'neocmake',
                     'pyright',
-                    'harper_ls',
-                    'gopls',
-                    'hls'
                 }
             }
         end
